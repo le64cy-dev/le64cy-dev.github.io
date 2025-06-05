@@ -39,6 +39,18 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+#toggle-theme .dark-theme-icon,
+#toggle-theme .light-theme-icon {
+    display: none /* Hide both by default */
+}
+body:not(.light-mode) #toggle-theme .dark-theme-icon {
+    display: inline-block;
+}
+
+body.light-mode #toggle-theme .light-theme-icon {
+    display: inline-block;
+}
+
 header {
   display: flex;
   justify-content: space-between;
