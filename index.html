@@ -11,79 +11,104 @@
   <header>
     <div class="logo">WavyBot</div>
     <nav>
-      <a href="#intro">Home</a>
-      <a href="#dev">Developer</a>
-      <a href="#features">Features</a>
-      <a href="#invite">Invite</a>
-      <a href="#privacy">Privacy</a>
-      <a href="#terms">Terms</a>
+      <a href="#home">Home</a>
+      <a href="#developer">Developer</a>
+      <a href="#features-page">Features</a>
+      <a href="#invite-page">Invite</a>
+      <a href="#privacy-policy">Privacy</a>
+      <a href="#terms-conditions">Terms</a>
     </nav>
 
     <button id="toggle-theme" class="btn big" aria-label="Toggle Theme">
     ⚡ Light Theme / Dark Theme ⚡
     </button>
-
-
   </header>
 
-  <section id="intro" class="hero">
-    <h1>Meet <span>WavyBot</span></h1>
-    <p>The all-in-one bot to protect, entertain, and manage your Discord server like a pro.</p>
-    <a href="#invite" class="btn">Invite Wavy</a>
-  </section>
+  <main>
+    <!-- Home Page (Intro + Core Features Summary) -->
+    <section id="home" class="hero active-section">
+      <h1>Meet <span>WavyBot</span></h1>
+      <p class="tagline">The all-in-one bot to protect, entertain, and manage your Discord server like a pro.</p>
 
-  <section id="dev" class="about">
-    <h2>👨‍💻 About the Developer</h2>
-    <p>Hey! I'm <strong>Legacy</strong>, a cybersecurity and development enthusiast who decided to create WavyBot to revolutionize how Discord servers are managed. Wavy is more than just a bot; it's a personal project that will continue to grow endlessly 🚀.</p>
-  </section>
+      <div class="intro-features">
+        <h3>Why WavyBot?</h3>
+        <p>WAVYBOT is here to transform your Discord experience, bringing unparalleled security and a tidal wave of dynamic features to your community. We believe a great bot should adapt to your needs, not the other way around.</p>
+        <div class="intro-feature-grid">
+          <div class="intro-card">
+            <h4>🛡️ Anti-Raid System</h4>
+            <p>Real-time defense against mass mentions, spam, and malicious links, keeping your server safe 24/7.</p>
+          </div>
+          <div class="intro-card">
+            <h4>📋 Advanced Moderation</h4>
+            <p>Detailed logging of all moderation actions and essential tools to manage your community effectively.</p>
+          </div>
+          <div class="intro-card">
+            <h4>🎉 Fun & Utility</h4>
+            <p>Engage your members with games, memes, leveling systems, and a suite of useful commands.</p>
+          </div>
+        </div>
+      </div>
+      <a href="#invite-page" class="btn">Invite Wavy</a>
+    </section>
 
-  <section id="features" class="features">
-    <h2>🚀 Wavy's Features</h2>
-    <div class="feature-grid">
-      <div class="card">
-        <h3>✨ Must-Have: Moderative Log System!</h3>
-        <p>Keep a detailed record of all moderation actions and key events on your server for full transparency and accountability.</p>
-      </div>
-      <div class="card">
-        <h3>🛡️ Anti-Raid System</h3>
-        <p>Intelligent protection against mass mentions, fake bots, and suspicious names.</p>
-      </div>
-      <div class="card">
-        <h3>📋 Moderation Logs</h3>
-        <p>Everything that happens on your server is logged: bans, kicks, timeouts, edits, etc.</p>
-      </div>
-      <div class="card">
-        <h3>🎮 Fun Commands</h3>
-        <p>Games, memes, quotes, leveling system, and economy to keep the community active.</p>
-      </div>
-      <div class="card">
-        <h3>ℹ️ Utilities</h3>
-        <p>Informative commands, suggestions, polls, bot uptime, and more useful tools.</p>
-      </div>
-    </div>
-  </section>
+    <!-- Developer Page -->
+    <section id="developer" class="about">
+      <h2>👨‍💻 About the Developer</h2>
+      <p>Hey! I'm <strong>Legacy</strong>, a cybersecurity and development enthusiast who decided to create WavyBot to revolutionize how Discord servers are managed. Wavy is more than just a bot; it's a personal project that will continue to grow endlessly 🚀.</p>
+    </section>
 
-  <section id="invite" class="cta">
-    <h2>💫 Ready to try WavyBot?</h2>
-    <p>Invite it to your server and start improving your community today.</p>
-    <a href="https://discord.com/oauth2/authorize?client_id=1209275204497571920&scope=bot+applications.commands&permissions=8" class="btn big">Invite Wavy Now</a>
-    <a href="https://discord.gg/ScQVXQsczK" class="btn">Support Server</a>
-  </section>
+    <!-- Features Page (Detailed Cards) -->
+    <section id="features-page" class="features">
+      <h2>🚀 Wavy's Features</h2>
+      <div class="feature-grid">
+        <div class="card">
+          <h3>✨ Must-Have: Moderative Log System!</h3>
+          <p>Keep a detailed record of all moderation actions and key events on your server for full transparency and accountability.</p>
+        </div>
+        <div class="card">
+          <h3>🛡️ Anti-Raid System</h3>
+          <p>Intelligent protection against mass mentions, fake bots, and suspicious names.</p>
+        </div>
+        <div class="card">
+          <h3>📋 Moderation Logs</h3>
+          <p>Everything that happens on your server is logged: bans, kicks, timeouts, edits, etc.</p>
+        </div>
+        <div class="card">
+          <h3>🎮 Fun Commands</h3>
+          <p>Games, memes, quotes, leveling system, and economy to keep the community active.</p>
+        </div>
+        <div class="card">
+          <h3>ℹ️ Utilities</h3>
+          <p>Informative commands, suggestions, polls, bot uptime, and more useful tools.</p>
+        </div>
+      </div>
+    </section>
 
-  <section id="privacy" class="legal">
-    <h2>🔐 Privacy Policy</h2>
-    <p>WavyBot does not store personally identifiable information outside of Discord. We only use necessary information (such as user, channel, message IDs) to provide the bot's functions. We do not share or sell your information. All data is handled securely and responsibly.</p>
-  </section>
+    <!-- Invite Page -->
+    <section id="invite-page" class="cta">
+      <h2>💫 Ready to try WavyBot?</h2>
+      <p>Invite it to your server and start improving your community today.</p>
+      <a href="https://discord.com/oauth2/authorize?client_id=1209275204497571920&scope=bot+applications.commands&permissions=8" class="btn big">Invite Wavy Now</a>
+      <a href="https://discord.gg/ScQVXQsczK" class="btn">Support Server</a>
+    </section>
 
-  <section id="terms" class="legal">
-    <h2>📜 Terms and Conditions</h2>
-    <p>By using WavyBot, you agree not to use it for illegal, offensive activities, or activities that violate Discord's terms. The team behind Wavy reserves the right to remove access to the bot in case of misuse or abuse of the service.</p>
-    <p>Using Wavy implies that you understand and accept these terms.</p>
-    <p><strong>⚠️ Disclaimer:</strong> By using WavyBot, you agree that neither the bot nor its developer are responsible for damages caused by errors, misuse, or situations beyond the technical team's control.</p>
-  </section>
+    <!-- Privacy Policy Page -->
+    <section id="privacy-policy" class="legal">
+      <h2>🔐 Privacy Policy</h2>
+      <p>WavyBot does not store personally identifiable information outside of Discord. We only use necessary information (such as user, channel, message IDs) to provide the bot's functions. We do not share or sell your information. All data is handled securely and responsibly.</p>
+    </section>
+
+    <!-- Terms and Conditions Page -->
+    <section id="terms-conditions" class="legal">
+      <h2>📜 Terms and Conditions</h2>
+      <p>By using WavyBot, you agree not to use it for illegal, offensive activities, or activities that violate Discord's terms. The team behind Wavy reserves the right to remove access to the bot in case of misuse or abuse of the service.</p>
+      <p>Using Wavy implies that you understand and accept these terms.</p>
+      <p><strong>⚠️ Disclaimer:</strong> By using WavyBot, you agree that neither the bot nor its developer are responsible for damages caused by errors, misuse, or situations beyond the technical team's control.</p>
+    </section>
+  </main>
 
   <footer>
-    <p>&copy; 2025 WavyBot by Legacy | <a href="#privacy">Privacy Policy</a> | <a href="#terms">Terms of Service</a></p>
+    <p>&copy; 2025 WavyBot by Legacy | <a href="#privacy-policy">Privacy Policy</a> | <a href="#terms-conditions">Terms of Service</a></p>
   </footer>
 
   <script src="script.js"></script>

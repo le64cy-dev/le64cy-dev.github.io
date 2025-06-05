@@ -1,21 +1,37 @@
-/* style.css */
-
+/* Define default (dark) theme variables */
 :root {
   --primary-color: #50b8e7; /* Azul suave tipo ola */
-  --background-dark: #0f0f0f;
-  --background-light: #f5f5f5;
-  --card-color: #142a38;
-  --text-light: #ffffff;
-  --text-dark: #000000;
+  --background-color: #0f0f0f;
+  --header-bg: rgba(20, 42, 56, 0.9);
+  --card-bg: #142a38;
+  --text-color: #ffffff;
+  --footer-bg: #0a0a0a;
+  --legal-border: #333;
+  --section-bg: #142a38; /* General section background */
+  --light-section-bg: #0f0f0f; /* For legal sections */
+
   --font-main: 'Rubik', sans-serif;
   --font-accent: 'Orbitron', sans-serif;
+}
+
+/* Light theme variables */
+body.light-mode {
+  --primary-color: #007bff; /* Un azul diferente para luz */
+  --background-color: #f5f5f5;
+  --header-bg: rgba(245, 245, 245, 0.9);
+  --card-bg: #e0e0e0;
+  --text-color: #000000;
+  --footer-bg: #ccc;
+  --legal-border: #bbb;
+  --section-bg: #f0f0f0;
+  --light-section-bg: #f5f5f5;
 }
 
 body {
   margin: 0;
   font-family: var(--font-main);
-  background-color: var(--background-dark);
-  color: var(--text-light);
+  background-color: var(--background-color);
+  color: var(--text-color);
   scroll-behavior: smooth;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -25,7 +41,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background: rgba(20, 42, 56, 0.9);
+  background: var(--header-bg);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -50,12 +66,12 @@ header {
   border-radius: 8px;
   cursor: pointer;
   font-family: var(--font-main);
-  transition: background 0.3s, color 0.3s;
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
 }
 
 #toggle-theme:hover {
   background: var(--primary-color);
-  color: var(--text-light);
+  color: var(--text-color); /* Usar --text-color para que cambie con el tema */
 }
 
 @keyframes logoFadeIn {
@@ -64,7 +80,7 @@ header {
 }
 
 nav a {
-  color: var(--text-light);
+  color: var(--text-color); /* Usar --text-color */
   margin-left: 1.5rem;
   text-decoration: none;
   font-weight: bold;
@@ -75,10 +91,48 @@ nav a:hover {
   color: var(--primary-color);
 }
 
+/* Base style for sections - hidden by default */
+section {
+  display: none; /* Hide all sections by default */
+  padding: 4rem 2rem;
+  opacity: 0; /* For fade-in animation */
+  transform: translateY(20px); /* For slide-up animation */
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Smooth transition */
+  background-color: var(--section-bg); /* Default section background */
+  color: var(--text-color);
+}
+
+/* Specific section backgrounds */
 .hero {
-  padding: 6rem 2rem;
+  background: linear-gradient(to bottom, var(--background-color), var(--section-bg));
   text-align: center;
-  background: linear-gradient(to bottom, #0f0f0f, #142a38);
+}
+
+.about {
+    background-color: var(--light-section-bg);
+}
+
+.features {
+    background-color: var(--section-bg);
+}
+
+.cta {
+    background-color: var(--light-section-bg);
+    text-align: center;
+}
+
+.legal {
+  background-color: var(--light-section-bg); /* Use the lighter background for legal sections */
+  border-top: 1px solid var(--legal-border);
+  color: var(--text-color);
+}
+
+
+/* Active section styling */
+section.active-section {
+  display: block; /* Show the active section */
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .hero h1 span {
@@ -89,7 +143,7 @@ nav a:hover {
 
 @keyframes fadeInColor {
   from { opacity: 0.7; }
-  to { opacity: 1; color: #8bd5f7; }
+  to { opacity: 1; color: #8bd5f7; } /* A lighter primary color for the animation end */
 }
 
 .btn {
@@ -98,29 +152,23 @@ nav a:hover {
   padding: 0.75rem 1.5rem;
   border: none;
   background: var(--primary-color);
-  color: var(--text-light);
+  color: var(--text-color); /* Usar --text-color */
   border-radius: 8px;
   font-size: 1rem;
   cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
+  transition: background 0.3s ease, transform 0.2s ease, color 0.3s ease;
   text-decoration: none;
 }
 
 .btn:hover {
-  background: #8bd5f7;
+  background: #8bd5f7; /* Keep a specific hover color if desired, or make it dynamic */
   transform: scale(1.05);
+  color: var(--text-color);
 }
 
 .btn.big {
   font-size: 1.2rem;
   font-weight: bold;
-}
-
-section {
-  padding: 4rem 2rem;
-  animation: sectionFadeIn 1s ease forwards;
-  opacity: 0;
-  transform: translateY(20px);
 }
 
 section h2 {
@@ -135,13 +183,67 @@ section p {
   line-height: 1.6;
 }
 
-@keyframes sectionFadeIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.tagline {
+  font-size: 1.3em;
+  margin-bottom: 2rem;
+  color: #c0c0c0; /* Lighter text for tagline */
 }
 
+/* Intro Features for Home Page */
+.intro-features {
+    margin-top: 3rem;
+    padding: 2rem;
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.intro-features h3 {
+    font-family: var(--font-accent);
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.intro-features p {
+    font-size: 1.1em;
+    margin-bottom: 2rem;
+    max-width: none; /* Override section p max-width */
+}
+
+.intro-feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.intro-card {
+    background-color: var(--background-color); /* Contrast with parent intro-features */
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    text-align: left;
+    color: var(--text-color);
+}
+
+.intro-card h4 {
+    color: var(--primary-color);
+    font-size: 1.3em;
+    margin-bottom: 0.5rem;
+}
+
+.intro-card p {
+    font-size: 0.95em;
+    line-height: 1.5;
+    max-width: none;
+}
+
+
+/* Feature Grid for Features Page */
 .feature-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -150,11 +252,12 @@ section p {
 }
 
 .card {
-  background: var(--card-color);
+  background: var(--card-bg);
   padding: 1.5rem;
   border-radius: 12px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: var(--text-color);
 }
 
 .card:hover {
@@ -165,7 +268,7 @@ section p {
 footer {
   text-align: center;
   padding: 2rem;
-  background: #0a0a0a;
+  background: var(--footer-bg);
   font-size: 0.9rem;
   color: #aaa;
 }
@@ -180,12 +283,22 @@ footer a:hover {
   text-decoration: underline;
 }
 
-.legal {
-  background: #0f0f0f;
-  padding: 3rem 2rem;
-  color: #ccc;
-  border-top: 1px solid #333;
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  nav {
+    margin-top: 1rem;
+  }
+  nav a {
+    margin: 0.5rem 0.8rem;
+  }
+  .hero, section {
+    padding: 4rem 1rem;
+  }
+  .intro-feature-grid {
+    grid-template-columns: 1fr; /* Single column on small screens */
+  }
 }
-
-/* Botón de toggle debe ir en el HTML en el header */
-/* <button id="toggle-theme">Cambiar Tema</button> */
