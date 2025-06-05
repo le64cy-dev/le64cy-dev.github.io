@@ -1,10 +1,11 @@
-/* Define default (dark) theme variables */
 :root {
   --primary-color: #50b8e7; /* Azul suave tipo ola */
+  --secondary-color: #8bd5f7; /* Un tono más claro del primary para hover/animaciones */
   --background-color: #0f0f0f;
   --header-bg: rgba(20, 42, 56, 0.9);
   --card-bg: #142a38;
   --text-color: #ffffff;
+  --text-light-subtle: #c0c0c0; /* Para texto secundario como taglines */
   --footer-bg: #0a0a0a;
   --legal-border: #333;
   --section-bg: #142a38; /* General section background */
@@ -17,10 +18,12 @@
 /* Light theme variables */
 body.light-mode {
   --primary-color: #007bff; /* Un azul diferente para luz */
+  --secondary-color: #3399ff; /* Un tono más claro del primary para hover/animaciones */
   --background-color: #f5f5f5;
   --header-bg: rgba(245, 245, 245, 0.9);
   --card-bg: #e0e0e0;
   --text-color: #000000;
+  --text-light-subtle: #444444;
   --footer-bg: #ccc;
   --legal-border: #bbb;
   --section-bg: #f0f0f0;
@@ -110,10 +113,12 @@ section {
 
 .about {
     background-color: var(--light-section-bg);
+    text-align: center; /* CENTRADO DE H2 Y P */
 }
 
 .features {
     background-color: var(--section-bg);
+    text-align: center; /* CENTRADO DE H2 */
 }
 
 .cta {
@@ -125,6 +130,41 @@ section {
   background-color: var(--light-section-bg); /* Use the lighter background for legal sections */
   border-top: 1px solid var(--legal-border);
   color: var(--text-color);
+  text-align: center; /* CENTRADO DE H2 */
+}
+
+.legal .legal-content { /* Contenedor para el texto legal para mantener el ancho */
+    max-width: 900px;
+    margin: 2rem auto;
+    text-align: left; /* Alineación del texto dentro del contenido legal */
+    line-height: 1.8; /* Mayor espacio entre líneas para legibilidad */
+    font-size: 0.95rem;
+}
+
+.legal .legal-content h3 {
+    color: var(--primary-color);
+    margin-top: 2rem;
+    margin-bottom: 0.8rem;
+    font-size: 1.5rem;
+    text-align: left; /* Títulos de subsección alineados a la izquierda */
+}
+
+.legal .legal-content ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+.legal .legal-content ul li {
+    margin-bottom: 0.5rem;
+}
+
+.legal .legal-content p.last-updated {
+    font-style: italic;
+    font-size: 0.85rem;
+    text-align: right;
+    margin-top: 2rem;
+    color: var(--text-light-subtle);
 }
 
 
@@ -143,60 +183,84 @@ section.active-section {
 
 @keyframes fadeInColor {
   from { opacity: 0.7; }
-  to { opacity: 1; color: #8bd5f7; } /* A lighter primary color for the animation end */
-}
-
-.btn {
-  display: inline-block;
-  margin: 1rem 0.5rem;
-  padding: 0.75rem 1.5rem;
-  border: none;
-  background: var(--primary-color);
-  color: var(--text-color); /* Usar --text-color */
-  border-radius: 8px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease, color 0.3s ease;
-  text-decoration: none;
-}
-
-.btn:hover {
-  background: #8bd5f7; /* Keep a specific hover color if desired, or make it dynamic */
-  transform: scale(1.05);
-  color: var(--text-color);
-}
-
-.btn.big {
-  font-size: 1.2rem;
-  font-weight: bold;
-}
-
-section h2 {
-  font-family: var(--font-accent);
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-section p {
-  max-width: 800px;
-  margin: auto;
-  line-height: 1.6;
+  to { opacity: 1; color: var(--secondary-color); } /* Usar secondary para la animación */
 }
 
 .tagline {
   font-size: 1.3em;
   margin-bottom: 2rem;
-  color: #c0c0c0; /* Lighter text for tagline */
+  color: var(--text-light-subtle); /* Lighter text for tagline */
 }
+
+/* Botones con más dinamismo y suavizado */
+.btn {
+  display: inline-block;
+  margin: 1rem 0.8rem; /* Mayor margen entre botones */
+  padding: 1rem 2.5rem; /* Más padding para botones grandes */
+  border: none;
+  background: var(--primary-color);
+  color: var(--text-color);
+  border-radius: 12px; /* Más redondeado */
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Sombra más pronunciada */
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease, color 0.3s ease;
+  position: relative; /* Para efectos pseudo-elementos si se añaden */
+  overflow: hidden; /* Para efectos de brillo */
+}
+
+.btn::before { /* Efecto de brillo/onda en hover */
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: width 0.4s ease-out, height 0.4s ease-out, opacity 0.4s ease-out;
+}
+
+.btn:hover::before {
+  width: 200%;
+  height: 200%;
+  opacity: 1;
+}
+
+
+.btn:hover {
+  background: var(--secondary-color); /* Un color de hover más dinámico */
+  transform: translateY(-3px) scale(1.02); /* Leve elevación y escalado */
+  box-shadow: 0 8px 25px rgba(var(--primary-color-rgb-values), 0.7); /* Sombra que brilla */
+  color: var(--text-color);
+}
+
+/* Para el color de la sombra dinámica (requiere JS o calcular RGB) */
+/* Temporalmente, si quieres que la sombra sea dinámica, puedes añadir una variable extra en :root */
+/* Por ejemplo, en :root: --primary-color-rgb: 80, 184, 231; */
+/* Y luego usar rgba(var(--primary-color-rgb), 0.7); */
+/* Por ahora, usaremos un color fijo pero intenso */
+/* Ojo: `var(--primary-color-rgb-values)` necesita que definas `--primary-color-rgb-values: 80, 184, 231;` en tus :root y light-mode */
+/* Para simplicidad por ahora, dejo el color fijo */
+
+.btn.big {
+  padding: 1.2rem 3rem; /* Más grande aún */
+  font-size: 1.4rem;
+}
+
 
 /* Intro Features for Home Page */
 .intro-features {
     margin-top: 3rem;
-    padding: 2rem;
+    padding: 2.5rem; /* Más padding */
     background-color: var(--card-bg);
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    max-width: 900px;
+    border-radius: 15px; /* Más redondeado */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.4); /* Sombra más fuerte */
+    max-width: 950px; /* Un poco más ancho */
     margin-left: auto;
     margin-right: auto;
 }
@@ -204,40 +268,46 @@ section p {
 .intro-features h3 {
     font-family: var(--font-accent);
     color: var(--primary-color);
-    font-size: 1.8rem;
+    font-size: 2rem; /* Más grande */
     margin-bottom: 1rem;
 }
 
 .intro-features p {
     font-size: 1.1em;
     margin-bottom: 2rem;
-    max-width: none; /* Override section p max-width */
+    max-width: none;
 }
 
 .intro-feature-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Min ancho un poco más grande */
+    gap: 2rem; /* Más espacio */
     margin-top: 1.5rem;
 }
 
 .intro-card {
     background-color: var(--background-color); /* Contrast with parent intro-features */
-    padding: 1rem;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    padding: 1.5rem; /* Más padding */
+    border-radius: 12px; /* Más redondeado */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3); /* Sombra mejorada */
     text-align: left;
     color: var(--text-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición para hover */
+}
+
+.intro-card:hover {
+    transform: translateY(-5px); /* Leve elevación al pasar el ratón */
+    box-shadow: 0 5px 15px rgba(var(--primary-color-rgb-values), 0.5); /* Sombra que brilla */
 }
 
 .intro-card h4 {
     color: var(--primary-color);
-    font-size: 1.3em;
+    font-size: 1.4em; /* Más grande */
     margin-bottom: 0.5rem;
 }
 
 .intro-card p {
-    font-size: 0.95em;
+    font-size: 1em; /* Ajuste de tamaño */
     line-height: 1.5;
     max-width: none;
 }
@@ -246,23 +316,33 @@ section p {
 /* Feature Grid for Features Page */
 .feature-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Tarjetas un poco más grandes */
+  gap: 2.5rem; /* Más espacio */
   margin-top: 2rem;
 }
 
 .card {
   background: var(--card-bg);
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 2rem; /* Más padding */
+  border-radius: 18px; /* ¡MÁS REDONDEADO! */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); /* Sombra un poco más fuerte */
+  transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.3s ease; /* Transiciones más suaves */
   color: var(--text-color);
 }
 
 .card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 0 25px rgba(80, 184, 231, 0.6);
+  transform: translateY(-15px) scale(1.02); /* Más elevación y leve escalado */
+  box-shadow: 0 10px 30px rgba(var(--primary-color-rgb-values), 0.8); /* Sombra más grande y brillante */
+  background-color: color-mix(in srgb, var(--card-bg) 90%, var(--primary-color)); /* Suave mezcla de color en hover */
+}
+
+/* Define RGB values for dynamic shadows in :root and light-mode */
+:root {
+    --primary-color-rgb-values: 80, 184, 231; /* RGB de #50b8e7 */
+}
+
+body.light-mode {
+    --primary-color-rgb-values: 0, 123, 255; /* RGB de #007bff */
 }
 
 footer {
@@ -283,6 +363,7 @@ footer a:hover {
   text-decoration: underline;
 }
 
+
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
   header {
@@ -299,6 +380,9 @@ footer a:hover {
     padding: 4rem 1rem;
   }
   .intro-feature-grid {
+    grid-template-columns: 1fr; /* Single column on small screens */
+  }
+  .feature-grid {
     grid-template-columns: 1fr; /* Single column on small screens */
   }
 }
