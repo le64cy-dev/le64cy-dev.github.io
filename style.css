@@ -14,14 +14,6 @@
   --section-bg: #142a38; /* General section background */
   --light-section-bg: #0f0f0f; /* For legal sections */
 
-  /* Variables para el botón principal de INVITE (el animado: .button) - Colores de Olas del Mar */
-   --primary: var(--primary-color); /* Correcto, usa el azul principal */
-  --neutral-1: #e0f2f7; /* Cambia a este azul muy pálido, casi blanco */
-  --neutral-2: #8bd5f7; /* Cambia a este azul claro */
-  --radius: 14px;
-  --button-shadow-color: rgba(0, 0, 0, 0.2);
-  --button-outline-color: white; /* Mantén blanco o cámbialo si prefieres otro */
-
   /* Variables para los botones secundarios (Solo "Support Server" ahora: .btn) */
   --btn-bg-color: #5865f2; /* Azul Discord */
   --btn-text-color: white;
@@ -54,13 +46,6 @@ body.light-mode {
   --legal-border: #bbb;
   --section-bg: #f0f0f0;
   --light-section-bg: #f5f5f5;
-
-  /* Variables para el botón principal de INVITE (el animado: .button) en Light Mode */
-  --primary: var(--primary-color); /* Correcto, usa el azul principal del tema claro */
-  --neutral-1: #e6f7ff; /* Un azul muy pálido, casi blanco para el modo claro */
-  --neutral-2: #9acfff; /* Un azul intermedio para los gradientes en modo claro */
-  --button-shadow-color: rgba(0, 0, 0, 0.1);
-  --button-outline-color: var(--primary); /* Esto está bien, el contorno se adaptará */
 
 
   /* Variables para los botones secundarios (Solo "Support Server" ahora: .btn) en Light Mode */
@@ -159,65 +144,7 @@ nav a.active-link::after {
   width: 100%;
 }
 
-/* --- ESTILO PARA EL ÚNICO BOTÓN ANIMADO (INVITE: .button) CON EFECTO DE OLA --- */
-.button {
-  cursor: pointer;
-  border-radius: var(--radius);
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
-  border: none;
-  box-shadow: 0 0.5px 0.5px 1px rgba(255, 255, 255, 0.2),
-    0 10px 20px rgba(0, 0, 0, 0.2), 0 4px 5px 0px rgba(0, 0, 0, 0.05);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  transition: all 0.3s ease;
-  min-width: 200px;
-  padding: 20px;
-  height: 68px;
-  font-family: var(--font-main); /* Usar la fuente principal */
-  font-style: normal;
-  font-size: 18px;
-  font-weight: 600;
-  margin: 40px auto 20px auto; /* Centered with margin-bottom */
-  outline: none; /* Quitar el outline del focus por defecto del navegador */
-}
 
-.button:hover {
-  transform: scale(1.02);
-  box-shadow: 0 0 1px 2px rgba(255, 255, 255, 0.3),
-    0 15px 30px rgba(0, 0, 0, 0.3), 0 10px 3px -3px rgba(0, 0, 0, 0.04);
-}
-.button:active {
-  transform: scale(1);
-  box-shadow: 0 0 1px 2px rgba(255, 255, 255, 0.3),
-    0 10px 3px -3px rgba(0, 0, 0, 0.2);
-}
-.button:after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: var(--radius);
-  border: 2.5px solid transparent;
-  background: linear-gradient(var(--neutral-1), var(--neutral-2)) padding-box,
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.45))
-      border-box;
-  z-index: 0;
-  transition: all 0.4s ease;
-}
-.button:hover::after {
-  transform: scale(1.05, 1.1);
-  box-shadow: inset 0 -1px 3px 0 rgba(255, 255, 255, 1);
-}
-.button::before {
-  content: "";
-  inset: 7px 6px 6px 6px;
-  position: absolute;
-  background: linear-gradient(to top, var(--neutral-1), var(--neutral-2));
-  border-radius: 30px;
-  filter: blur(0.5px);
-  z-index: 2;
-}
 .state p {
   display: flex;
   align-items: center;
@@ -264,14 +191,7 @@ nav a.active-link::after {
   animation: spin 2s linear infinite;
   animation-play-state: paused;
 }
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
+
 .button:hover .outline {
   opacity: 1;
 }
@@ -295,21 +215,7 @@ nav a.active-link::after {
   opacity: 1;
   animation: disapear 0.6s ease forwards calc(var(--i) * 0.03s);
 }
-@keyframes wave {
-  30% {
-    opacity: 1;
-    transform: translateY(4px) translateX(0) rotate(0);
-  }
-  50% {
-    opacity: 1;
-    transform: translateY(-3px) translateX(0) rotate(0);
-    color: var(--primary); /* Color de la ola en el texto */
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) translateX(0) rotate(0);
-  }
-}
+
 @keyframes slideDown {
   0% {
     opacity: 0;
@@ -331,17 +237,6 @@ nav a.active-link::after {
     transform: translateY(0) translateX(0) rotate(0);
   }
 }
-@keyframes disapear {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-    transform: translateX(5px) translateY(20px);
-    color: var(--primary);
-    filter: blur(5px);
-  }
-}
 
 /* Plane (Icon) */
 .state--default .icon svg {
@@ -358,31 +253,6 @@ nav a.active-link::after {
 .button:active .state--default .icon { /* Usar :active también */
   transform: rotate(0) scale(1.25);
 }
-@keyframes takeOff {
-  0% {
-    opacity: 1;
-  }
-  60% {
-    opacity: 1;
-    transform: translateX(70px) rotate(45deg) scale(2);
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(160px) rotate(45deg) scale(0);
-  }
-}
-@keyframes land {
-  0% {
-    transform: translateX(-60px) translateY(30px) rotate(-50deg) scale(2);
-    opacity: 0;
-    filter: blur(3px);
-  }
-  100% {
-    transform: translateX(0) translateY(0) rotate(0);
-    opacity: 1;
-    filter: blur(0);
-  }
-}
 
 /* Contrail */
 .state--default .icon:before {
@@ -397,23 +267,6 @@ nav a.active-link::after {
 .button:focus .state--default .icon:before,
 .button:active .state--default .icon:before { /* Usar :active también */
   animation: contrail 0.8s linear forwards;
-}
-@keyframes contrail {
-  0% {
-    width: 0;
-    opacity: 1;
-  }
-  8% {
-    width: 15px;
-  }
-  60% {
-    opacity: 0.7;
-    width: 80px;
-  }
-  100% {
-    opacity: 0;
-    width: 160px;
-  }
 }
 
 /* States */
@@ -463,29 +316,54 @@ nav a.active-link::after {
   opacity: 0;
   animation: appear 1.2s ease forwards 0.8s;
 }
-@keyframes appear {
-  0% {
-    opacity: 0;
-    transform: scale(4) rotate(-40deg);
-    color: var(--primary);
-    filter: blur(4px);
-  }
-  30% {
-    opacity: 1;
-    transform: scale(0.6);
-    filter: blur(1px);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.2);
-    filter: blur(0);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
+
+
+.rainbow-hover {
+   font-size: 16px;
+  font-weight: 700;
+  color: #ff7576; /* Color del texto base (aunque será cubierto por el gradiente) */
+  background-color: #2B3044; /* Fondo del botón */
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 12px 24px;
+  position: relative;
+  line-height: 24px;
+  border-radius: 9px;
+  box-shadow: 0px 1px 2px #2B3044,
+    0px 4px 16px #2B3044;
+  transform-style: preserve-3d;
+  transform: scale(var(--s, 1)) perspective(600px)
+    rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  perspective: 600px;
+  transition: transform 0.1s;
+  /* Añadir margen para centrar si es necesario, similar a .button anterior */
+  margin: 40px auto 20px auto;
+  display: block; /* Para que ocupe su propia línea y se pueda centrar con margin: auto */
+  width: fit-content; /* Para que el ancho se ajuste al contenido */
+  text-decoration: none; /* Asegurar que no tenga subrayado como un enlace */
 }
 
+.sp {
+  background: linear-gradient(
+      90deg,
+      #866ee7, /* Morado */
+      #ea60da, /* Rosa */
+      #ed8f57, /* Naranja */
+      #fbd41d, /* Amarillo */
+      #2cca91  /* Verde */
+    );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: block;
+  text-fill-color: transparent;
+}
+
+.rainbow-hover:active {
+  transition: 0.3s;
+  transform: scale(0.93);
+}
 
 /* --- ESTILO PARA BOTONES SECUNDARIOS (Soporte Server: .btn) --- */
 .btn {
