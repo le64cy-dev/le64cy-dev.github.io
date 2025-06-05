@@ -1,0 +1,191 @@
+/* style.css */
+
+:root {
+  --primary-color: #50b8e7; /* Azul suave tipo ola */
+  --background-dark: #0f0f0f;
+  --background-light: #f5f5f5;
+  --card-color: #142a38;
+  --text-light: #ffffff;
+  --text-dark: #000000;
+  --font-main: 'Rubik', sans-serif;
+  --font-accent: 'Orbitron', sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-main);
+  background-color: var(--background-dark);
+  color: var(--text-light);
+  scroll-behavior: smooth;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(20, 42, 56, 0.9);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+}
+
+.logo {
+  font-family: var(--font-accent);
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  animation: logoFadeIn 2s ease;
+}
+
+/* Botón para cambiar tema */
+#toggle-theme {
+  background: none;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: var(--font-main);
+  transition: background 0.3s, color 0.3s;
+}
+
+#toggle-theme:hover {
+  background: var(--primary-color);
+  color: var(--text-light);
+}
+
+@keyframes logoFadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+nav a {
+  color: var(--text-light);
+  margin-left: 1.5rem;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: var(--primary-color);
+}
+
+.hero {
+  padding: 6rem 2rem;
+  text-align: center;
+  background: linear-gradient(to bottom, #0f0f0f, #142a38);
+}
+
+.hero h1 span {
+  color: var(--primary-color);
+  font-family: var(--font-accent);
+  animation: fadeInColor 3s ease infinite alternate;
+}
+
+@keyframes fadeInColor {
+  from { opacity: 0.7; }
+  to { opacity: 1; color: #8bd5f7; }
+}
+
+.btn {
+  display: inline-block;
+  margin: 1rem 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  background: var(--primary-color);
+  color: var(--text-light);
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #8bd5f7;
+  transform: scale(1.05);
+}
+
+.btn.big {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+section {
+  padding: 4rem 2rem;
+  animation: sectionFadeIn 1s ease forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+section h2 {
+  font-family: var(--font-accent);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+section p {
+  max-width: 800px;
+  margin: auto;
+  line-height: 1.6;
+}
+
+@keyframes sectionFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background: var(--card-color);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 25px rgba(80, 184, 231, 0.6);
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: #0a0a0a;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+footer a {
+  color: var(--primary-color);
+  text-decoration: none;
+  margin: 0 0.5rem;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+.legal {
+  background: #0f0f0f;
+  padding: 3rem 2rem;
+  color: #ccc;
+  border-top: 1px solid #333;
+}
+
+/* Botón de toggle debe ir en el HTML en el header */
+/* <button id="toggle-theme">Cambiar Tema</button> */
