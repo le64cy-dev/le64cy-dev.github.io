@@ -6,6 +6,7 @@
   <title>WavyBot - Your Trusted Bot</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Rubik&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon-96x96.png" type="image/png">
 </head>
 <body>
   <header>
@@ -15,19 +16,17 @@
       <a href="#developer">Developer</a>
       <a href="#features-page">Features</a>
       <a href="#invite-page">Invite</a>
+      <a href="#reviews-page">Reviews</a>
       <a href="#privacy-policy">Privacy</a>
       <a href="#terms-conditions">Terms</a>
     </nav>
-
-    <button id="toggle-theme" class="btn big theme-toggle-btn" aria-label="Toggle Theme">
-    <span class="dark-theme-icon" role="img" aria-label="Sun icon">☀️</span>
-    <span class="light-theme-icon" role="img" aria-label="Moon icon">🌙</span>
-</button>
-
+    <label class="switch" aria-label="Toggle Light/Dark Theme">
+        <input type="checkbox" id="toggle-theme-checkbox">
+        <span class="slider"></span>
+    </label>
   </header>
 
   <main>
-    <!-- Home Page (Intro + Core Features Summary) -->
     <section id="home" class="hero active-section">
       <h1>Meet <span>WavyBot</span></h1>
       <p class="tagline">The all-in-one bot to protect, entertain, and manage your Discord server like a pro.</p>
@@ -50,16 +49,114 @@
           </div>
         </div>
       </div>
-      <a href="#invite-page" class="btn">Invite Wavy</a>
+      
+      <button class="button" id="invite-wavy-button">
+        <div class="outline"></div>
+        <div class="state state--default">
+          <div class="icon">
+            <svg
+              width="1em"
+              height="1em"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g style="filter: url(#shadow)">
+                <path
+                  d="M14.2199 21.63C13.0399 21.63 11.3699 20.8 10.0499 16.83L9.32988 14.67L7.16988 13.95C3.20988 12.63 2.37988 10.96 2.37988 9.78001C2.37988 8.61001 3.20988 6.93001 7.16988 5.60001L15.6599 2.77001C17.7799 2.06001 19.5499 2.27001 20.6399 3.35001C21.7299 4.43001 21.9399 6.21001 21.2299 8.33001L18.3999 16.82C17.0699 20.8 15.3999 21.63 14.2199 21.63ZM7.63988 7.03001C4.85988 7.96001 3.86988 9.06001 3.86988 9.78001C3.86988 10.5 4.85988 11.6 7.63988 12.52L10.1599 13.36C10.3799 13.43 10.5599 13.61 10.6299 13.83L11.4699 16.35C12.3899 19.13 13.4999 20.12 14.2199 20.12C14.9399 20.12 16.0399 19.13 16.9699 16.35L19.7999 7.86001C20.3099 6.32001 20.2199 5.06001 19.5699 4.41001C18.9199 3.76001 17.6599 3.68001 16.1299 4.19001L7.63988 7.03001Z"
+                  fill="currentColor"
+                ></path>
+                <path
+                  d="M10.11 14.4C9.92005 14.4 9.73005 14.33 9.58005 14.18C9.29005 13.89 9.29005 13.41 9.58005 13.12L13.16 9.53C13.45 9.24 13.93 9.24 14.22 9.53C14.51 9.82 14.51 10.3 14.22 10.59L10.64 14.18C10.5 14.33 10.3 14.4 10.11 14.4Z"
+                  fill="currentColor"
+                ></path>
+              </g>
+              <defs>
+                <filter id="shadow">
+                  <fedropshadow
+                    dx="0"
+                    dy="1"
+                    stdDeviation="0.6"
+                    flood-opacity="0.5"
+                  ></fedropshadow>
+                </filter>
+              </defs>
+            </svg>
+          </div>
+
+<p>
+  <span style="--i:0">I</span>
+  <span style="--i:1">n</span>
+  <span style="--i:2">v</span>
+  <span style="--i:3">i</span>
+  <span style="--i:4">t</span>
+  <span style="--i:5">e</span>
+  <span style="--i:6"> </span>
+  <span style="--i:7">W</span>
+  <span style="--i:8">a</span>
+  <span style="--i:9">v</span>
+  <span style="--i:10">y</span>
+</p>
+
+        </div>
+        <div class="state state--sent">
+          <div class="icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              height="1em"
+              width="1em"
+              stroke-width="0.5px"
+              stroke="black"
+            >
+              <g style="filter: url(#shadow)">
+                <path
+                  fill="currentColor"
+                  d="M12 22.75C6.07 22.75 1.25 17.93 1.25 12C1.25 6.07 6.07 1.25 12 1.25C17.93 1.25 22.75 6.07 22.75 12C22.75 17.93 17.93 22.75 12 22.75ZM12 2.75C6.9 2.75 2.75 6.9 2.75 12C2.75 17.1 6.9 21.25 12 21.25C17.1 21.25 21.25 17.1 21.25 12C21.25 6.9 17.1 2.75 12 2.75Z"
+                ></path>
+                <path
+                  fill="currentColor"
+                  d="M10.5795 15.5801C10.3795 15.5801 10.1895 15.5001 10.0495 15.3601L7.21945 12.5301C6.92945 12.2401 6.92945 11.7601 7.21945 11.4701C7.50945 11.1801 7.98945 11.1801 8.27945 11.4701L10.5795 13.7701L15.7195 8.6301C16.0095 8.3401 16.4895 8.3401 16.7795 8.6301C17.0695 8.9201 17.0695 9.4001 16.7795 9.6901L11.1095 15.3601C10.9695 15.5001 10.7795 15.5801 10.5795 15.5801Z"
+                ></path>
+              </g>
+              <defs>
+                <filter id="shadow">
+                  <fedropshadow
+                    dx="0"
+                    dy="1"
+                    stdDeviation="0.6"
+                    flood-opacity="0.5"
+                  ></fedropshadow>
+                </filter>
+              </defs>
+            </svg>
+          </div>
+<p>
+  <span style="--i:0">I</span>
+  <span style="--i:1">n</span>
+  <span style="--i:2">v</span>
+  <span style="--i:3">i</span>
+  <span style="--i:4">t</span>
+  <span style="--i:5">e</span>
+  <span style="--i:6"> </span>
+  <span style="--i:7">W</span>
+  <span style="--i:8">a</span>
+  <span style="--i:9">v</span>
+  <span style="--i:10">y</span>
+</p>
+
+
+        </div>
+      </button>
+
     </section>
 
-    <!-- Developer Page -->
     <section id="developer" class="about">
       <h2>👨‍💻 About the Developer</h2>
       <p>Hey! I'm <strong>Legacy</strong>, a cybersecurity and development enthusiast who decided to create WavyBot to revolutionize how Discord servers are managed. Wavy is more than just a bot; it's a personal project that will continue to grow endlessly 🚀.</p>
     </section>
 
-    <!-- Features Page (Detailed Cards) -->
     <section id="features-page" class="features">
       <h2>🚀 Wavy's Features</h2>
       <div class="feature-grid">
@@ -86,15 +183,114 @@
       </div>
     </section>
 
-    <!-- Invite Page -->
     <section id="invite-page" class="cta">
       <h2>💫 Ready to try WavyBot?</h2>
       <p>Invite it to your server and start improving your community today.</p>
-      <a href="https://discord.com/oauth2/authorize?client_id=1209275204497571920&scope=bot+applications.commands&permissions=8" class="btn big">Invite Wavy Now</a>
-      <a href="https://discord.gg/ScQVXQsczK" class="btn">Support Server</a>
+      <button class="button" id="invite-wavy-button-cta">
+        <div class="outline"></div>
+        <div class="state state--default">
+          <div class="icon">
+            <svg
+              width="1em"
+              height="1em"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g style="filter: url(#shadow)">
+                <path
+                  d="M14.2199 21.63C13.0399 21.63 11.3699 20.8 10.0499 16.83L9.32988 14.67L7.16988 13.95C3.20988 12.63 2.37988 10.96 2.37988 9.78001C2.37988 8.61001 3.20988 6.93001 7.16988 5.60001L15.6599 2.77001C17.7799 2.06001 19.5499 2.27001 20.6399 3.35001C21.7299 4.43001 21.9399 6.21001 21.2299 8.33001L18.3999 16.82C17.0699 20.8 15.3999 21.63 14.2199 21.63ZM7.63988 7.03001C4.85988 7.96001 3.86988 9.06001 3.86988 9.78001C3.86988 10.5 4.85988 11.6 7.63988 12.52L10.1599 13.36C10.3799 13.43 10.5599 13.61 10.6299 13.83L11.4699 16.35C12.3899 19.13 13.4999 20.12 14.2199 20.12C14.9399 20.12 16.0399 19.13 16.9699 16.35L19.7999 7.86001C20.3099 6.32001 20.2199 5.06001 19.5699 4.41001C18.9199 3.76001 17.6599 3.68001 16.1299 4.19001L7.63988 7.03001Z"
+                  fill="currentColor"
+                ></path>
+                <path
+                  d="M10.11 14.4C9.92005 14.4 9.73005 14.33 9.58005 14.18C9.29005 13.89 9.29005 13.41 9.58005 13.12L13.16 9.53C13.45 9.24 13.93 9.24 14.22 9.53C14.51 9.82 14.51 10.3 14.22 10.59L10.64 14.18C10.5 14.33 10.3 14.4 10.11 14.4Z"
+                  fill="currentColor"
+                ></path>
+              </g>
+              <defs>
+                <filter id="shadow">
+                  <fedropshadow
+                    dx="0"
+                    dy="1"
+                    stdDeviation="0.6"
+                    flood-opacity="0.5"
+                  ></fedropshadow>
+                </filter>
+              </defs>
+            </svg>
+          </div>
+<p>
+  <span style="--i:0">I</span>
+  <span style="--i:1">n</span>
+  <span style="--i:2">v</span>
+  <span style="--i:3">i</span>
+  <span style="--i:4">t</span>
+  <span style="--i:5">e</span>
+  <span style="--i:7">W</span>
+  <span style="--i:6"> </span>  
+  <span style="--i:8">a</span>
+  <span style="--i:9">v</span>
+  <span style="--i:10">y</span>
+</p>        
+        </div>
+        <div class="state state--sent">
+          <div class="icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              height="1em"
+              width="1em"
+              stroke-width="0.5px"
+              stroke="black"
+            >
+              <g style="filter: url(#shadow)">
+                <path
+                  fill="currentColor"
+                  d="M12 22.75C6.07 22.75 1.25 17.93 1.25 12C1.25 6.07 6.07 1.25 12 1.25C17.93 1.25 22.75 6.07 22.75 12C22.75 17.93 17.93 22.75 12 22.75ZM12 2.75C6.9 2.75 2.75 6.9 2.75 12C2.75 17.1 6.9 21.25 12 21.25C17.1 21.25 21.25 17.1 21.25 12C21.25 6.9 17.1 2.75 12 2.75Z"
+                ></path>
+                <path
+                  fill="currentColor"
+                  d="M10.5795 15.5801C10.3795 15.5801 10.1895 15.5001 10.0495 15.3601L7.21945 12.5301C6.92945 12.2401 6.92945 11.7601 7.21945 11.4701C7.50945 11.1801 7.98945 11.1801 8.27945 11.4701L10.5795 13.7701L15.7195 8.6301C16.0095 8.3401 16.4895 8.3401 16.7795 8.6301C17.0695 8.9201 17.0695 9.4001 16.7795 9.6901L11.1095 15.3601C10.9695 15.5001 10.7795 15.5801 10.5795 15.5801Z"
+                ></path>
+              </g>
+              <defs>
+                <filter id="shadow">
+                  <fedropshadow
+                    dx="0"
+                    dy="1"
+                    stdDeviation="0.6"
+                    flood-opacity="0.5"
+                  ></fedropshadow>
+                </filter>
+              </defs>
+            </svg>
+          </div>
+<p>
+  <span style="--i:0">I</span>
+  <span style="--i:1">n</span>
+  <span style="--i:2">v</span>
+  <span style="--i:3">i</span>
+  <span style="--i:4">t</span>
+  <span style="--i:6"> </span>  <span style="--i:7">W</span>
+  <span style="--i:5">e</span>
+  <span style="--i:8">a</span>
+  <span style="--i:9">v</span>
+  <span style="--i:10">y</span>
+</p>
+        </div>
+      </button>
+      <a href="https://discord.gg/ScQVXQsczK" class="btn" target="_blank">Support Server</a>
     </section>
 
-    <!-- Privacy Policy Page -->
+    <section id="reviews-page" class="reviews">
+      <h2>🌟 What Our Users Say</h2>
+      <p>We're proud of the positive feedback WavyBot receives! Your reviews help us improve and grow our community.</p>
+      <div class="review-placeholder">
+        <p>You can find all our latest reviews directly on our Top.gg page.</p>
+      </div>
+      </section>
+
     <section id="privacy-policy" class="legal">
       <h2>🔐 Privacy Policy</h2>
       <div class="legal-content">
@@ -103,11 +299,11 @@
         <h3>1. Data Collection</h3>
         <p>WavyBot collects only the data strictly necessary for its functionality, including:</p>
         <ul>
-          <li><strong>Discord User IDs:</strong> To identify users for moderation actions, command usage, and personalized features (e.g., leveling system). These are stored encrypted.</li>
-          <li><strong>Discord Guild (Server) IDs:</strong> To store server-specific configurations (e.g., logging channels, anti-raid settings) and track bot presence.</li>
-          <li><strong>Discord Channel IDs:</strong> For setting up specific channels for logs, welcome messages, etc.</li>
-          <li><strong>Limited Message Content:</strong> Temporarily processed for command parsing, anti-raid detection, and moderation logs. Message content is NOT stored unless explicitly required for a specific bot feature (like suggestion logs, which would be visible to your server staff) and is always anonymized where possible.</li>
-          <li><strong>Bot-related Settings:</strong> Configurations set by server administrators (e.g., enable/disable features, thresholds, custom messages).</li>
+          <li>**Discord User IDs:** To identify users for moderation actions, command usage, and personalized features (e.g., leveling system). These are stored encrypted.</li>
+          <li>**Discord Guild (Server) IDs:** To store server-specific configurations (e.g., logging channels, anti-raid settings) and track bot presence.</li>
+          <li>**Discord Channel IDs:** For setting up specific channels for logs, welcome messages, etc.</li>
+          <li>**Limited Message Content:** Temporarily processed for command parsing, anti-raid detection, and moderation logs. Message content is NOT stored unless explicitly required for a specific bot feature (like suggestion logs, which would be visible to your server staff) and is always anonymized where possible.</li>
+          <li>**Bot-related Settings:** Configurations set by server administrators (e.g., enable/disable features, thresholds, custom messages).</li>
         </ul>
 
         <h3>2. Use of Data</h3>
@@ -135,7 +331,6 @@
       </div>
     </section>
 
-    <!-- Terms and Conditions Page -->
     <section id="terms-conditions" class="legal">
       <h2>📜 Terms and Conditions</h2>
       <div class="legal-content">

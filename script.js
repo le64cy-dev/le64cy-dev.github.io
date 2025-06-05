@@ -1,28 +1,41 @@
+/* script.js */
+
 document.addEventListener('DOMContentLoaded', () => {
-    const toggleThemeBtn = document.getElementById('toggle-theme');
+    const toggleThemeCheckbox = document.getElementById('toggle-theme-checkbox');
     const navLinks = document.querySelectorAll('nav a');
     const sections = document.querySelectorAll('main section'); 
+    
+    // Get the new invite buttons by their IDs
+    const inviteButtonHome = document.getElementById('invite-wavy-button');
+    const inviteButtonCTA = document.getElementById('invite-wavy-button-cta'); // For the button on the invite page
+
+    // Discord Invite Link
+    const discordInviteLink = "https://discord.com/oauth2/authorize?client_id=1209275204497571920&scope=bot+applications.commands&permissions=8";
 
     // --- Theme Toggle Functionality ---
-    if (toggleThemeBtn) {
-        toggleThemeBtn.addEventListener('click', () => {
-            document.body.classList.toggle('light-mode');
-            // Save the preference to localStorage
-            if (document.body.classList.contains('light-mode')) {
+    if (toggleThemeCheckbox) {
+        const applyTheme = () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                document.body.classList.add('light-mode');
+                toggleThemeCheckbox.checked = true;
+            } else {
+                document.body.classList.remove('light-mode');
+                toggleThemeCheckbox.checked = false;
+            }
+        };
+
+        applyTheme();
+
+        toggleThemeCheckbox.addEventListener('change', () => {
+            if (toggleThemeCheckbox.checked) {
+                document.body.classList.add('light-mode');
                 localStorage.setItem('theme', 'light');
             } else {
+                document.body.classList.remove('light-mode');
                 localStorage.setItem('theme', 'dark');
             }
         });
-
-        // Apply theme from localStorage on load
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'light') {
-            document.body.classList.add('light-mode');
-        } else {
-            // Default to dark if no preference or 'dark' saved
-            document.body.classList.remove('light-mode');
-        }
     }
 
     // --- Page Navigation Functionality ---
@@ -34,11 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const targetSection = document.querySelector(pageId);
         if (targetSection) {
             targetSection.classList.add('active-section');
-            // Scroll to top of the new section for better UX if needed
-            // targetSection.scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Update URL hash without causing a page reload
         if (history.pushState) {
             history.pushState(null, '', pageId);
         } else {
@@ -46,22 +56,44 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Handle nav link clicks
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
-            e.preventDefault(); // Prevent default anchor jump
+            e.preventDefault();
             const targetId = link.getAttribute('href'); 
             showPage(targetId);
         });
     });
 
-    // Handle initial page load (based on URL hash or default to #home)
     const initialHash = window.location.hash || '#home'; 
     showPage(initialHash);
 
-    // Handle browser back/forward buttons (popstate event)
     window.addEventListener('popstate', () => {
         const currentHash = window.location.hash || '#home';
         showPage(currentHash);
     });
+
+    // --- NEW: Invite Button Functionality ---
+    const handleInviteButtonClick = (buttonElement) => {
+        if (!buttonElement) return; // Exit if button doesn't exist
+
+        buttonElement.addEventListener('click', () => {
+            // Add the 'focus' class to trigger the animation
+            buttonElement.focus(); 
+
+            // Prevent multiple clicks during animation
+            buttonElement.disabled = true;
+
+            setTimeout(() => {
+                window.open(discordInviteLink, '_blank'); 
+                
+                
+                buttonElement.disabled = false; 
+
+            }, 1200); // Match or exceed the longest animation duration
+        });
+    };
+
+    // Apply the click handler to both invite buttons
+    handleInviteButtonClick(inviteButtonHome);
+    handleInviteButtonClick(inviteButtonCTA); // If you add one to the CTA section too
 });
